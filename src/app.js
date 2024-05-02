@@ -1,6 +1,6 @@
-const express = require('express')
+import express from 'express'
+
 const app = express()
-const port = 3000
 
 // Criar rota padrão ou raíz
 app.get('/', (req, res) => {
@@ -9,7 +9,4 @@ app.get('/', (req, res) => {
     res.send('Olá, Danilo!')
 })
 
-// Escutar a porta padrão 3000
-app.listen(port, () => {
-    console.log(`Servidor rodando no endereço http://localhost:${port}`)
-})
+export default app

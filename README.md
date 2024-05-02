@@ -66,3 +66,46 @@ npm run dev
 Lembre-se: para aplicar alterações de código, basta salvar o arquivo (com a aplicação em andamento a partir do ```npm run dev```, é claro)
 
 
+# Criar rotas Get e Refatorar código
+
+### Criar arquivo /server.js
+```
+import app from './src/app.js'
+
+const port = 3000
+
+// Escutar a porta padrão 3000
+app.listen(port, () => {
+    console.log(`Servidor rodando no endereço http://localhost:${port}`)
+})
+
+```
+
+### Ajustar o arquivo /src/app.js
+```
+import express from 'express'
+
+const app = express()
+
+// Criar rota padrão ou raíz
+app.get('/', (req, res) => {
+// req de requisição e res de response
+// quando chamarmos nossa rota padrão, queremos que ela nos responda
+    res.send('Olá, Danilo!')
+})
+
+export default app
+```
+
+- Essas alterações são referentes à modularização do código
+- Basicamente nós dividimos o app.js em dois arquivos (gerando o ```server.js```)
+
+### Alterar o script dev
+Para que o nodemon possa ser utilizado agora, nós precisamos alterar o arquivo no package.js para ```server.js```
+```
+"scripts": {
+    "dev": "nodemon server.js"
+    // outros parâmetros
+}
+```
+
